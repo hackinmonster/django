@@ -1,5 +1,5 @@
-ITSC-3155 Software Engineering Assignment
-Following a tutorial to build a simple web application using the Django framework.
+ITSC-3155 Software Engineering Assignment\n
+Following a tutorial to build a simple web application using the Django framework.\n
 [https://www.youtube.com/watch?v=PtQiiknWUcI&ab_channel=TraversyMedia
 ](url)
 31:28- Views & URL's
