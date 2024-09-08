@@ -1,23 +1,22 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Room
 
-
-rooms = [
-    {'id':1, 'name':'Lets learn Python'},
-    {'id':2, 'name':'Design with me'},
-    {'id':3, 'name':'Front end Developers'},
-]
+#rooms = [
+#    {'id':1, 'name':'Lets learn Python'},
+#    {'id':2, 'name':'Design with me'},
+#    {'id':3, 'name':'Front end Developers'},
+#]
 
 def home(request):
+    
+    rooms = Room.objects.all #give us all the rooms in db, overriding variable initialized above
     context = {'rooms': rooms}
     return render(request, 'base/home.html', {'rooms': rooms})
 
+
+
 def room(request, pk): 
-    room = None
-    #loop through list of rooms, whatever room id matches the pk from the url, get that room
-    for i in rooms:
-        if i['id'] == int(pk):
-            room = i
+    room = Room.objects.get(id=pk)
     context = {'room': room}
     return render(request, 'base/room.html', context)
 
