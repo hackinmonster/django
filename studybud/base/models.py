@@ -19,7 +19,6 @@ class Topic(models.Model):
         return self.name
 
 
-
 class Room(models.Model):
     host = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     topic = models.ForeignKey(Topic, on_delete=models.SET_NULL, null=True)
@@ -33,8 +32,13 @@ class Room(models.Model):
         #auto_now_add only takes a snapshot the first time we save
     created = models.DateTimeField(auto_now_add=True)
 
+    class Meta: #order by descending date, newest first
+        ordering = ['-updated', '-created']
+
     def __str__(self):
         return self.name
+    
+
     
 class Message(models.Model):
     #one to many relationship, user can have many messages
