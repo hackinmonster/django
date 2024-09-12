@@ -25,7 +25,7 @@ class Room(models.Model):
     name = models.CharField(max_length=200)
         #null=True means the database can have an instance of this model without a description value
     description = models.TextField(null=True, blank=True)
-    #participants = 
+    participants = models.ManyToManyField(User, related_name='participants', blank=True)
         #every time the save method is called, add a timestamp
     updated = models.DateTimeField(auto_now=True)
         #auto_now takes snapshot every time we save
