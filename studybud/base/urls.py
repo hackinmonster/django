@@ -6,6 +6,8 @@ urlpatterns = [
 
     path('login/', views.loginPage, name="login"),
     path('logout/', views.logoutUser, name="logout"),
+    path('register/', views.registerPage, name="register"),
+
 
     path('', views.home, name='home'),
     #passing in the id into the url, comes from the parameter in the room function in views.py
