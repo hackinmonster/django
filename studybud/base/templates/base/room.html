@@ -17,7 +17,7 @@
 
         <p>{{room.description}}</p>
 
-        <div class "comment-wraper">
+        <div class="comment-wrapper">
             <h3>Conversation</h3>
 
             <hr>
@@ -34,20 +34,21 @@
 
             {% endfor %}
 
-        {% if request.user.is_authenticated %}
-        <div class="comment-form">
-            <form method="POST" action="">
-                {% csrf_token %}
-                <input type="text" name="body" placeholder="Write your message here...">
-            </form>
+            {% if request.user.is_authenticated %}
+            <div class="comment-form">
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <input type="text" name="body" placeholder="Write your message here...">
+                </form>
 
+            </div>
+            {% endif %}
         </div>
-        {% endif %}
 
     </div>
 
     <div>
-
+ 
         <h3>Participants</h3>
         <hr>
         
